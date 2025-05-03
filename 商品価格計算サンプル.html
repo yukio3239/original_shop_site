@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>商品価格計算</title>
+</head>
+<body>
+
+<label for="quantity">数量:</label>
+<input type="number" id="quantity" min="1" value="1"><br><br>
+
+<label for="customization">カスタマイズ:</label>
+<select id="customization">
+  <option value="none">なし</option>
+  <option value="premium">プレミアム</option>
+  <option value="basic">ベーシック</option>
+</select><br><br>
+
+<button onclick="calculatePrice()">価格を計算</button><br><br>
+
+<div id="totalPrice"></div>
+
+<script>
+function calculatePrice() {
+  var quantity = parseInt(document.getElementById("quantity").value);
+  var customization = document.getElementById("customization").value;
+  var basePrice = 10; // 商品のベース価格
+
+  var totalPrice = basePrice * quantity;
+
+  // カスタマイズに応じて価格を調整
+  if (customization === "premium") {
+    totalPrice *= 1.2; // プレミアムカスタマイズの場合は20%のプレミアムを追加
+  } else if (customization === "basic") {
+    totalPrice *= 0.8; // ベーシックカスタマイズの場合は20%のディスカウントを適用
+  }
+
+  document.getElementById("totalPrice").textContent = "合計価格は $" + totalPrice.toFixed(2);
+}
+</script>
+
+</body>
+</html>

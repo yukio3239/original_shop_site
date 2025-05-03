@@ -1,0 +1,365 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap');
+
+.drink{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+}
+hr{
+    margin-top: 3%;
+}
+.drink_image{
+    width: 50%;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.drink_image img{
+    width: 90%;
+    height: 90%;
+    border-radius: 15px;
+    object-fit: cover;
+}
+.drink_info{
+    width: 50%;
+}
+.drink_info_inner{
+    padding: 5%;
+}
+.heading,.price{
+    margin: 5% 0;
+}
+.heading p, h1{
+    margin: 0;
+}
+.heading h1{
+    font-size: 2.5vmax;
+}
+.priceQuantity{
+    height: 4rem;
+    line-height: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+}
+.price{
+    height: 4rem;
+    line-height: 4rem;
+    grid-column: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.price p{
+    /* margin: auto 0; */
+    font-size:3rem;
+}
+/* 追記 */
+p#totalPrice {
+    height:2.5rem;
+    line-height:2rem;
+}
+
+
+/* 数量指定 */
+.spinner-container {
+    grid-column: 2;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+  
+.spinner {
+    width: 35px;
+    font-size: 2rem;
+    text-align: center;
+    border: none;
+    background: none;
+    outline: none;
+    pointer-events: none;
+}
+  
+.spinner::-webkit-inner-spin-button,
+.spinner::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+  
+.spinner-sub,
+.spinner-add {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    text-align: center;
+    border: 1px solid #000;
+    border-radius: 50%;
+    cursor: pointer;
+    line-height: 2rem;
+    margin: 5% 0;
+}
+  
+.disabled {
+    opacity: 0.3;
+    cursor: inherit;
+}
+.in_cart{
+    grid-column: 5;
+    width: 11vmax;
+    height: 3rem;
+    text-align: center;
+    line-height: 1.2;
+    font-size: 1.7vmin;
+    background-color: #008248;
+    border: 1px solid #008248;
+    border-radius: 3.125rem;
+    color: #ffffff;
+    transition: none;
+    align-items:safe;
+    font-weight: 400;
+    cursor: pointer;
+    /* padding: 1rem; */
+}
+
+.info_text{
+    margin: 5% 0;
+}
+.button_container{
+    /* display: flex; */
+    align-items: center;
+    border: none;
+    width: 100%;
+    margin-bottom: 5%;
+}
+.button_label{
+    text-align: left;
+    margin-bottom: 2%;
+    /* width: 40%; */
+}
+.options{
+    vertical-align: baseline;
+    width: 100%;
+}
+.buttons_group{
+    width: 100%;
+    
+}
+.buttons_group, .buttons_group_item:first-child{
+    border-top-left-radius: 3.125rem;
+    border-bottom-left-radius: 3.125rem;
+    margin-left: 0;
+}
+.buttons_group, .buttons_group_item:last-child{
+    border-top-right-radius: 3.125rem;
+    border-bottom-right-radius: 3.125rem;
+}
+.buttons_group_item{
+    width: 11vmax;
+    height: 3rem;
+    line-height: 1.2;
+    font-size: 1.7vmin;
+    background-color: #ffffff;
+    border: 1px solid #008248;
+    transition: none;
+    display: inline-flex;
+    align-items:safe;
+    justify-content: center;
+    font-weight: 400;
+    cursor: pointer;
+    margin: -4px;
+    margin-bottom: 2%;
+    padding: 1rem;
+    overflow: hidden;
+}
+.buttons_group_item.selected {
+    background-color: #008248;
+    color: #ffffff;
+}
+
+.accordion {
+    max-width: 100%;
+    margin-top: 3%;
+    border-radius: 25px;
+    /* box-shadow: 0 7px 15px 0 rgba(0, 0, 0, 0.284); */
+    background-color: #ffffff;
+}
+
+.accordion summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 1em 2em;
+    color: #5e5e5e;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.accordion .other_cst{
+    padding: 0;
+    margin-bottom: 10%;
+    display: flex;
+    justify-content: start;
+}
+.accordion summary::-webkit-details-marker {
+    display: none;
+}
+
+.accordion summary::after {
+    transform: translateY(-25%) rotate(45deg);
+    width: 7px;
+    height: 7px;
+    margin-left: 10px;
+    border-bottom: 3px solid #333333b3;
+    border-right: 3px solid #333333b3;
+    content: '';
+    transition: transform .3s;
+}
+
+.accordion[open] summary::after {
+    transform: rotate(225deg);
+}
+.accordion_inner{
+    display: flex;
+}
+.accordion table, .accordion p {
+    width: 50%;
+    transform: translateY(-10px);
+    opacity: 0;
+    margin: 0;
+    padding: .3em 2em 1.5em;
+    color: #333333;
+    transition: transform .5s, opacity .5s;
+    text-align: left;
+    color: #4d4d4d;
+}
+
+.accordion[open] table, .accordion[open] p {
+    transform: none;
+    opacity: 1;
+}
+
+
+
+.recommend{
+    margin: 5% 0;
+}
+.recommend_title{
+    width: 95%;
+    margin: 0 auto 5% auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid #555;
+    border-bottom: 2px solid #555;
+}
+
+.slider {/*横幅94%で左右に余白を持たせて中央寄せ*/
+    width:94%;
+    height: 40vh;
+    margin:0 auto;
+    padding: 0;
+ }
+ .slider li{
+    width: 15vw;
+ }
+ .slider li img {
+    width: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+ }
+ .slider li p{
+    text-align: left;
+    font-size: small;
+ }
+ 
+ /*slickのJSで書かれるタグ内、スライド左右の余白調整*/
+ 
+ .slider .slick-slide {
+     margin:0 10px;
+ }
+ 
+ /*矢印の設定*/
+ 
+ /*戻る、次へ矢印の位置*/
+ .slick-prev, 
+ .slick-next {
+     position: absolute;/*絶対配置にする*/
+     top: 50%;
+     cursor: pointer;/*マウスカーソルを指マークに*/
+     outline: none;/*クリックをしたら出てくる枠線を消す*/
+     border-top: 2px solid #666;/*矢印の色*/
+     border-right: 2px solid #666;/*矢印の色*/
+     height: 15px;
+     width: 15px;
+ }
+ 
+ .slick-prev {/*戻る矢印の位置と形状*/
+     left: -1.5%;
+     transform: rotate(-135deg);
+ }
+ 
+ .slick-next {/*次へ矢印の位置と形状*/
+     right: -1.5%;
+     transform: rotate(45deg);
+ }
+ 
+ /*ドットナビゲーションの設定*/
+ 
+ .slick-dots {
+     text-align:center;
+     margin:20px 0 0 0;
+ }
+ 
+ .slick-dots li {
+     display:inline-block;
+     margin:0 5px;
+ }
+ 
+ .slick-dots button {
+     color: transparent;
+     outline: none;
+     width:8px;/*ドットボタンのサイズ*/
+     height:8px;/*ドットボタンのサイズ*/
+     display:block;
+     border-radius:50%;
+     background:#ccc;/*ドットボタンの色*/
+ }
+ 
+ .slick-dots .slick-active button{
+     background:#333;/*ドットボタンの現在地表示の色*/
+ }
+
+@media screen and (max-width:768px){
+    .drink{
+        display: block;
+        width: 100%;
+    }
+    .drink_image{
+        position: relative!important;
+        width: inherit;
+        height: 60vh;
+        margin: 0 auto;
+    }
+    .drink_info{
+        width: 90vw;
+        margin: 0 auto;
+    }
+    .buttons_group_item{
+        width: 20vmin;
+        font-size: 2vmin;
+    }
+    .heading h1{
+        font-size: 4vmax;
+    }
+    .in_cart{
+        grid-column: 4 / 6;
+        width: 100%;
+    }
+}

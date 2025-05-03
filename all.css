@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap');
+html{
+    scroll-behavior: smooth;
+}
+body{
+    width: 100%;
+    margin: 0;
+    font-family: 'Noto Sans JP', sans-serif;
+    box-sizing: border-box;
+}
+a,ul,li{
+    text-decoration: none;
+    list-style: none;
+}
+a{
+    color: #333;
+}
+.inner_line{
+    border-top: 1px dashed rgb(150, 150, 150)
+}
+.wrapper{
+    width: inherit;
+}
+
+/* header */
+.header{
+    width: inherit;
+    height: 8vh;
+    padding: 10px;
+    border-bottom: 3px inset #CCCCCC;
+    position: relative;
+
+}
+.logo{
+    position: absolute;
+}
+.gnavi{
+    display: flex;
+    flex-wrap: wrap;/*スマホ表示折り返し用なのでPCのみなら不要*/
+    margin:0;
+    margin-left: 3%;
+    list-style: none;
+    position: absolute;
+}
+
+.gnavi li a{
+    display: block;
+    padding:10px 30px;
+    text-decoration: none;
+    color: #333;
+}
+
+.gnavi li{
+    margin-bottom:20px;
+}
+.gnavi li a{
+    /*線の基点とするためrelativeを指定*/
+	position: relative;
+}
+
+.gnavi li.current a,
+.gnavi li a:hover{
+	color:#0481A2;
+}
+
+.gnavi li a::after {
+    content: '';
+    /*絶対配置で線の位置を決める*/
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    /*線の形状*/
+    width: 80%;
+    height: 2px;
+    background:#0481A2;
+    /*アニメーションの指定*/
+    transition: all .3s;
+    transform: scale(0, 1);/*X方向0、Y方向1*/
+    transform-origin: left top;/*左上基点*/
+}
+
+/*現在地とhoverの設定*/
+.gnavi li.current a::after,
+.gnavi li a:hover::after {
+    transform: scale(1, 1);/*X方向にスケール拡大*/
+}
+
+
+/* フッター */
+.footer {
+    padding: 3rem 6rem;
+    margin-top: 10%;
+    background-color: #eeeeee;
+    height: auto;
+}
+
+.footer__container {
+    display: flex;
+    justify-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto 3% auto;
+}
+.footer__container nav{
+    width: 20vw;
+}
+
+.footer__title,
+.footer__link {
+    margin: 0 0 .8em;
+    color: #333;
+    font-size: 1em;
+}
+
+.footer__title {
+    font-weight: 600;
+}
+
+.footer__list {
+    padding: 0;
+    list-style-type: none;
+}
+
+.footer__link {
+    display: block;
+    font-size: .8em;
+}
+
+.footer__link:not(:hover) {
+    text-decoration: none;
+}
+
+
+.bottom{
+    display: flex;
+    justify-content: space-between;
+}
+.secondary_links{
+    display: flex;
+    align-items: center;
+    width: 80%;
+    padding: 0;
+}
+.secondary_links li:first-child{
+    border-left: none;
+    padding-left: 0;
+}
+.secondary_links li{
+    border-left: 1px solid #444444;
+    padding: 0 24px;
+    line-height: 1;
+    text-align: center;
+    font-size: small;
+    color: #444;
+}
+.sns{
+    display: flex;
+    padding: 0;
+}
+.sns li{
+    height: 32px;
+    padding: 0 10px;
+}
+.sns li img{
+    height: 100%;
+}
+@media screen and (max-width: 768px) {
+    .footer{
+        height: auto;
+    }
+    .footer__container {
+        display: flex;
+        flex-direction: column;
+    }
+    .footer__container nav{
+        width: 100%;
+        margin-bottom: 3%;
+        font-size: 1.5rem;
+    }
+    .bottom{
+        display: flex;
+        flex-direction: column;
+    }
+    .secondary_links{
+        display: flex;
+        flex-direction: column;
+    }
+    .secondary_links li{
+        border-left: none;
+        width:100%;
+        text-align: left;
+        padding-bottom: 20px;
+        padding-left: 20px;
+    }
+    .secondary_links li:first-child{
+        padding-left: 20px;
+    }
+    .sns li{
+        padding-left: 0;
+    }
+}

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="all.css">
+    <link rel="stylesheet" href="page01.css">
+    <title>page01</title>
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <div class="logo"><a href="index.html">
+                <img src="image/logo.svg" alt="">
+            </a></div>
+            <ul class="gnavi">
+                <li class="current"><a href="index.html">トップ</a></li><!--現在地にはcurrentクラスを付ける-->
+                <li><a href="index.html#menu">メニュー</a></li>
+                <li><a href="#">カート</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <article class="drink">
+            <section class="drink_image">
+                <img src="image/arriviamo/4524785527348_1_m.jpg" alt="">
+            </section>
+            <section class="drink_info">
+                <div class="drink_info_inner">
+                    <div class="heading">
+                        <h1>セリーン アイリッシュ コーヒー</h1>
+                    </div>
+                    <div class="info_text">
+                        <p>
+                            コクのあるデーツシロップを用いたアイリッシュ コーヒーをイメージしたアレンジ カクテル
+                        </p>
+                    </div>
+                    <hr class="inner_line">
+                    <div class="priceQuantity">
+                        <div class="price">
+                            <p id="totalPrice">¥2000</p>
+                        </div>
+                        <div class="spinner-container">
+                            <span class="spinner-sub disabled">-</span>
+                            <input class="spinner" type="number" min="1" max="5" value="1">
+                            <span class="spinner-add">+</span>
+                        </div>
+                        <button class="in_cart">カートに追加</button>
+                    </div>
+                    <hr>
+
+                    <div class="customize">
+                        <h2>カスタマイズ</h2>
+                        <div class="button_container">
+                            <div class="button_label">ホット/アイス</div>
+                            <div class="options">
+                                <div class="buttons_group" id="hotIceButtons">
+                                    <button class="btn buttons_group_item selected"
+                                        onclick="toggleButton(this, 'hotIceButtons')">ホット</button>
+                                    <button class="btn buttons_group_item"
+                                        onclick="toggleButton(this, 'hotIceButtons')">アイス</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button_container">
+                            <div class="button_label">サイズ</div>
+                            <div class="options">
+                                <div class="buttons_group" id="sizeButtons">
+                                    <!-- <button class="btn buttons_group_item"
+                                        onclick="toggleButton(this, 'sizeButtons');calculatePrice()"
+                                        value="350">ショート</button> -->
+                                    <button class="btn buttons_group_item selected"
+                                        onclick="toggleButton(this, 'sizeButtons');calculatePrice()"
+                                        value="2000">トール</button>
+                                    <!-- <button class="btn buttons_group_item"
+                                        onclick="toggleButton(this, 'sizeButtons');calculatePrice()"
+                                        value="435">グランデ</button>
+                                    <button class="btn buttons_group_item"
+                                        onclick="toggleButton(this, 'sizeButtons');calculatePrice()"
+                                        value="480">ベンティ</button> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <details class="accordion">
+                            <summary class="other_cst">その他のカスタマイズ</summary>
+
+                            <div class="button_container">
+                                <div class="button_label">シュガー</div>
+                                <div class="options">
+                                    <div class="buttons_group" id="sugarButtons">
+                                        <button class="btn buttons_group_item selected"
+                                            onclick="toggleButton(this, 'sugarButtons')">追加しない</button>
+                                        <button class="btn buttons_group_item"
+                                            onclick="toggleButton(this, 'sugarButtons')">1個</button>
+                                        <button class="btn buttons_group_item"
+                                            onclick="toggleButton(this, 'sugarButtons')">2個</button>
+                                        <button class="btn buttons_group_item"
+                                            onclick="toggleButton(this, 'sugarButtons')">3個</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="button_container">
+                                <div class="button_label">ミルク</div>
+                                <div class="options">
+                                    <div class="buttons_group" id="milkButtons">
+                                        <button class="btn buttons_group_item selected"
+                                            onclick="toggleButton(this, 'milkButtons')">追加しない</button>
+                                        <button class="btn buttons_group_item"
+                                            onclick="toggleButton(this, 'milkButtons')">1個</button>
+                                        <button class="btn buttons_group_item"
+                                            onclick="toggleButton(this, 'milkButtons')">2個</button>
+                                        <button class="btn buttons_group_item"
+                                            onclick="toggleButton(this, 'milkButtons')">3個</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="button_container">
+                                <div class="button_label">ホイップクリーム</div>
+                                <div class="options">
+                                    <div class="buttons_group" id="creamButtons">
+                                        <button class="btn buttons_group_item selected"
+                                            onclick="toggleButton(this, 'creamButtons');calculatePrice()"
+                                            value="0">追加しない</button>
+                                        <button class="btn buttons_group_item"
+                                            onclick="toggleButton(this, 'creamButtons');calculatePrice()"
+                                            value="54">通常料(+54円)</button>
+                                        <button class="btn buttons_group_item"
+                                            onclick="toggleButton(this, 'creamButtons');calculatePrice()"
+                                            value="54">多め(+54円)</button>
+                                        <button class="btn buttons_group_item"
+                                            onclick="toggleButton(this, 'creamButtons');calculatePrice()"
+                                            value="54">少なめ(+54円)</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="button_container">
+                                <div class="button_label">シロップ</div>
+                                <div class="options">
+                                    <div class="buttons_group" id="syrupButtons">
+                                        <div>
+                                            <button class="btn buttons_group_item selected"
+                                                onclick="toggleButton(this, 'syrupButtons');calculatePrice()"
+                                                value="0">追加しない</button>
+                                            <button class="btn buttons_group_item"
+                                                onclick="toggleButton(this, 'syrupButtons');calculatePrice()"
+                                                value="54">キャラメルフレーバー<br>(+54円)</button>
+                                            <button class="btn buttons_group_item"
+                                                onclick="toggleButton(this, 'syrupButtons');calculatePrice()"
+                                                value="54">バニラフレーバー<br>(+54円)</button>
+                                            <button class="btn buttons_group_item"
+                                                onclick="toggleButton(this, 'syrupButtons');calculatePrice()"
+                                                value="54">チョコレート<br>(+54円)</button>
+                                        </div>
+                                        <div>
+                                            <button class="btn buttons_group_item"
+                                                onclick="toggleButton(this, 'syrupButtons');calculatePrice()"
+                                                value="54">ホワイトモカ<br>(+54円)</button>
+                                            <button class="btn buttons_group_item"
+                                                onclick="toggleButton(this, 'syrupButtons');calculatePrice()"
+                                                value="54">タゾチャイ<br>(+54円)</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="button_container">
+                                <div class="button_label">エスプレッソショット</div>
+                                <div class="options">
+                                    <div class="buttons_group" id="esButtons">
+                                        <div>
+                                            <button class="btn buttons_group_item selected"
+                                                onclick="toggleButton(this, 'esButtons');calculatePrice()"
+                                                value="0">追加しない</button>
+                                            <button class="btn buttons_group_item"
+                                                onclick="toggleButton(this, 'esButtons');calculatePrice()"
+                                                value="54">1ショット<br>(+54円)</button>
+                                            <button class="btn buttons_group_item"
+                                                onclick="toggleButton(this, 'esButtons');calculatePrice()"
+                                                value="108">2ショット<br>(+108円)</button>
+                                            <button class="btn buttons_group_item"
+                                                onclick="toggleButton(this, 'esButtons');calculatePrice()"
+                                                value="162">3ショット<br>(+162円)</button>
+                                        </div>
+                                        <div>
+                                            <button class="btn buttons_group_item"
+                                                onclick="toggleButton(this, 'esButtons');calculatePrice()"
+                                                value="108">ディカフェショット<br>(+108円)</button>
+                                            <button class="btn buttons_group_item"
+                                                onclick="toggleButton(this, 'esButtons');calculatePrice()"
+                                                value="162">ディカフェ2ショット<br>(+162円)</button>
+                                            <button class="btn buttons_group_item"
+                                                onclick="toggleButton(this, 'esButtons');calculatePrice()"
+                                                value="216">ディカフェ3ショット<br>(+216円)</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="button_container">
+                                <div class="button_label">ソース</div>
+                                <div class="options">
+                                    <div class="buttons_group" id="sourceButtons">
+                                        <button class="btn buttons_group_item selected"
+                                            onclick="toggleButton(this, 'sourceButtons')">追加しない</button>
+                                        <button class="btn buttons_group_item"
+                                            onclick="toggleButton(this, 'sourceButtons')">キャラメルソース</button>
+                                        <button class="btn buttons_group_item"
+                                            onclick="toggleButton(this, 'sourceButtons')">チョコレートソース</button>
+                                        <button class="btn buttons_group_item"
+                                            onclick="toggleButton(this, 'sourceButtons')">ハチミツ</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </details>
+
+                    </div>
+
+                    <hr>
+                    <h2>栄養成分情報・アレルゲン</h2>
+                    <details class="accordion">
+                        <summary>栄養成分情報(トールサイズ)</summary>
+                        <div class="accordion_inner">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <th>エネルギー</th>
+                                        <td>18kcal</td>
+                                    </tr>
+                                    <tr>
+                                        <th>タンパク質</th>
+                                        <td>1.1g</td>
+                                    </tr>
+                                    <tr>
+                                        <th>脂質</th>
+                                        <td>0.0g</td>
+                                    </tr>
+                                    <tr>
+                                        <th>炭水化物</th>
+                                        <td>3.3g</td>
+                                    </tr>
+                                    <tr>
+                                        <th>食塩相当量</th>
+                                        <td>0.01g</td>
+                                    </tr>
+                                    <tr>
+                                        <th>食物繊維 </th>
+                                        <td>0.7g</td>
+                                    </tr>
+                                    <tr>
+                                        <th>糖質</th>
+                                        <td>2.6g</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <th>ナトリウム</th>
+                                        <td>6mg</td>
+                                    </tr>
+                                    <tr>
+                                        <th>カリウム</th>
+                                        <td>404mg</td>
+                                    </tr>
+                                    <tr>
+                                        <th>トランス脂肪酸</th>
+                                        <td>0.0g</td>
+                                    </tr>
+                                    <tr>
+                                        <th>飽和脂肪酸</th>
+                                        <td>0.0g</td>
+                                    </tr>
+                                    <tr>
+                                        <th>カフェイン</th>
+                                        <td>276mg</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </details>
+                    <details class="accordion">
+                        <summary>アレルゲン情報</summary>
+                        <p>アレルゲンなし</p>
+                    </details>
+                </div>
+            </section>
+        </article>
+
+        <article class="recommend">
+            <div class="recommend_title">
+                <h2>今季のおすすめ</h2>
+            </div>
+            <div class="recommend_list">
+                <ul class="slider">
+                    <li>
+                        <a href="sakura_frap.html">
+                            <img src="image/frappuccino/4524785514980_1_m.jpg" alt="">
+                            <p>花見だんご フラペチーノ</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sakura_cream.html">
+                            <img src="image/others/4524785556751_1_m.jpg" alt="">
+                            <p>花見さくらクリーム</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="strawberry.html">
+                            <img src="image/tea/4524785556645_1_m.jpg" alt="">
+                            <p>ストロベリーラベンダーティーラテ</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sakura_moose.html">
+                            <img src="image/espresso/4524785540538_1_m.jpg" alt="">
+                            <p>さくらムースフォームラテ</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sakura_latte.html">
+                            <img src="image/tea/4524785495883_1_m.jpg" alt="">
+                            <p>さくらジャスミンソイラテ</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="image/4524785526518_11_s.jpg" alt="">
+                            <p>ジョイフルメドレーティーラテフラペチーノ</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="image/4524785484887_11_s.jpg" alt="">
+                            <p>ジョイフルメドレーアプリコット&ムースティーラテ</p>
+                        </a>
+                    </li>
+                    <!--/slider-->
+                </ul>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container">
+            <nav>
+                <p class="footer__title">Company</p>
+                <ul class="footer__list">
+                    <li><a href="https://www.starbucks.co.jp/company/?nid=ft" class="footer__link">会社案内</a></li>
+                    <li><a href="https://www.starbucks.co.jp/company/summary/?nid=ft" class="footer__link">会社概要</a>
+                    </li>
+                    <li><a href="https://www.starbucks.co.jp/company/history/?nid=ft" class="footer__link">沿革</a>
+                    </li>
+                    <li><a href="https://www.starbucks.co.jp/company/mission.html?nid=ft" class="footer__link">Our
+                            Mission and Values</a></li>
+                </ul>
+            </nav>
+            <nav>
+                <p class="footer__title">Recruiting</p>
+                <ul class="footer__list">
+                    <li><a href="https://www.starbucks.co.jp/recruit/?nid=ft" class="footer__link">採用TOP</a></li>
+                    <li><a href="https://www.starbucks.co.jp/recruit/vision/?nid=ft"
+                            class="footer__link">スターバックスな未来</a></li>
+                    <li><a href="https://www.starbucks.co.jp/recruit/newgraduate/?nid=ft"
+                            class="footer__link">新卒採用</a></li>
+                    <li><a href="https://www.starbucks.co.jp/recruit/store_career/?nid=ft"
+                            class="footer__link">店舗中途採用</a></li>
+                    <li><a href="https://www.starbucks.co.jp/recruit/sc_career/?nid=ft"
+                            class="footer__link">SC中途採用</a></li>
+                    <li><a href="https://starbucks-job.jp/jobfind-pc/?nid=ft" class="footer__link">アルバイト採用</a></li>
+                </ul>
+            </nav>
+            <nav>
+                <p class="footer__title">Social Impact</p>
+                <ul class="footer__list">
+                    <li><a href="https://www.starbucks.co.jp/socialimpact/?nid=ft" class="footer__link">Social
+                            Impact</a></li>
+                    <li><a href="https://stories.starbucks.co.jp/stories/people/?nid=ft"
+                            class="footer__link">People</a></li>
+                    <li><a href="https://stories.starbucks.co.jp/ja/stories/planet/?nid=ft"
+                            class="footer__link">Planet</a></li>
+                    <li><a href="https://stories.starbucks.co.jp/ja/stories/community/?nid=ft"
+                            class="footer__link">Community</a></li>
+                    <li><a href="https://stories.starbucks.co.jp/ja/stories/customer-experience/?nid=ft"
+                            class="footer__link">Customer Experience</a></li>
+                    <li><a href="https://stories.starbucks.co.jp/ja/press/presscenter/?nid=ft"
+                            class="footer__link">Press Center</a></li>
+                </ul>
+            </nav>
+        </div>
+        <hr>
+        <div class="bottom">
+            <ul class="secondary_links">
+                <li>よくあるご質問・お問い合わせ</li>
+                <li>使用条件</li>
+                <li>ポリシー・約款・規約一覧</li>
+                <li>サイトマップ</li>
+            </ul>
+
+            <ul class="sns">
+                <li><a href="https://twitter.com/Starbucks_J/">
+                        <img src="image/icon-twitter.svg" alt="">
+                    </a></li>
+
+                <li><a href="https://www.instagram.com/starbucks_j/">
+                        <img src="image/icon-instagram.svg" alt="">
+                    </a></li>
+
+                <li><a href="https://www.facebook.com/StarbucksJapan">
+                        <img src="image/icon-facebook.svg" alt="">
+                    </a></li>
+
+                <li><a href="https://page.line.me/601xwgmk">
+                        <img src="image/icon-line.svg" alt="">
+                    </a></li>
+            </ul>
+        </div>
+        <small>
+            © 2024 Starbucks Coffee Company. All rights reserved.
+        </small>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="page01.js"></script>
+</body>
+
+</html>
